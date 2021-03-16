@@ -143,7 +143,7 @@ List<ToLearn> ITEMS = [
     'Arrow',
     'Cross',
     'Diamond'
-  ], 'Shape', 'assets/headerimages/h_shapes.jpg'),
+  ], 'Shapes', 'assets/headerimages/h_shapes.jpg'),
 
   //VEGETABLES
   ToLearn([

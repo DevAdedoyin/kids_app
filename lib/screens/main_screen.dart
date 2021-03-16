@@ -37,6 +37,7 @@ class MainScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
+            padding: EdgeInsets.all(20),
             // constraints: BoxConstraints.expand(),
             // width: double.infinity,
             decoration: BoxDecoration(
@@ -50,8 +51,8 @@ class MainScreen extends StatelessWidget {
           GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 5,
-              childAspectRatio: 2 / 2,
+              crossAxisSpacing: 2,
+              childAspectRatio: 1,
             ),
             itemBuilder: (context, index) {
               return InkWell(
@@ -65,7 +66,8 @@ class MainScreen extends StatelessWidget {
                 },
                 child: GridTile(
                   child: Card(
-                    elevation: 10,
+                    elevation: 30,
+                    shadowColor: Colors.red,
                     child: Image(
                       image: AssetImage(ITEMS[index].headerImage),
                       fit: BoxFit.contain,

@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/headerimages/
     - assets/bgimages/bgimg3.jpg
+    - assets/bgimages/bgimg2.jpg
     
   #   - images/a_dot_ham.jpeg
 

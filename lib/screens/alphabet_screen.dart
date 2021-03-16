@@ -4,19 +4,19 @@ import 'package:kids_learning_app/models/to_learn.dart';
 class AlphabetScreen extends StatefulWidget {
   static const routeName = '/alphabet_screen';
 
-  int pos;
-
-  @protected
-  @mustCallSuper
-  void initState() {
-    pos = 0;
-  }
-
   @override
   _AlphabetScreenState createState() => _AlphabetScreenState();
 }
 
 class _AlphabetScreenState extends State<AlphabetScreen> {
+  int pos;
+
+  @override
+  void initState() {
+    super.initState();
+    pos = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     int index = ModalRoute.of(context).settings.arguments;
@@ -29,7 +29,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
         body: Row(
           children: [
             Text(
-              ITEMS[index].letters[widget.pos],
+              ITEMS[index].letters[pos],
               style:
                   TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
             ),
@@ -41,10 +41,10 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                 child: Column(
                   children: [
                     Image.asset(
-                      ITEMS[index].imageUrl[widget.pos],
+                      ITEMS[index].imageUrl[pos],
                       fit: BoxFit.cover,
                     ),
-                    Text(ITEMS[index].words[widget.pos])
+                    Text(ITEMS[index].words[pos])
                   ],
                 ),
               ),
@@ -56,14 +56,14 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                     icon: Icon(Icons.arrow_forward),
                     onPressed: () {
                       setState(() {
-                        widget.pos++;
+                        pos++;
                       });
                     }),
                 IconButton(icon: Icon(Icons.play_arrow), onPressed: () {}),
                 IconButton(
                     icon: Icon(Icons.arrow_back),
                     onPressed: () {
-                      widget.pos--;
+                      pos--;
                     }),
               ],
             )
