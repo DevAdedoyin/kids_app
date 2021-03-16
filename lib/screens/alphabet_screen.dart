@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AlphabetScreen extends StatefulWidget {
+  static const routeName = '/alphabet_screen';
   @override
   _AlphabetScreenState createState() => _AlphabetScreenState();
 }
