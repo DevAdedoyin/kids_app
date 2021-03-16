@@ -25,7 +25,7 @@ List<ToLearn> ITEMS = [
     'Apple',
     'Basketball',
     'Clock'
-  ], 'Alphabets', 'assets/headerimages/h_alphabets.jpg'),
+  ], 'Alphabets', 'assets/headerimages/h_alphabet.jpg'),
 
   // ANIMALS
   ToLearn([
@@ -66,7 +66,7 @@ List<ToLearn> ITEMS = [
     'Black',
     'Green',
     'Red'
-  ], 'Colors', 'assets/headerimages/colors.png'),
+  ], 'Colors', 'assets/headerimages/h_colors.png'),
 
   //FLOWERS
   ToLearn([
