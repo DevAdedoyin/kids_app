@@ -44,8 +44,23 @@ class MainScreen extends StatelessWidget {
             childAspectRatio: 3 / 4,
           ),
           itemBuilder: (context, index) {
-            return Card();
+            return GridTile(
+              child: Card(
+                child: Image(
+                  image: AssetImage(ITEMS[index].headerImage),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              footer: GridTileBar(
+                backgroundColor: Colors.black45,
+                title: Text(
+                  ITEMS[index].title,
+                  style: TextStyle(color: Theme.of(context).accentColor),
+                ),
+              ),
+            );
           },
+          itemCount: ITEMS.length,
         ),
       ),
     );
