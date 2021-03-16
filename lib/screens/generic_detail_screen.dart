@@ -32,41 +32,90 @@ class _GenericDetailScreenState extends State<GenericDetailScreen> {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                height: 50,
-                width: 50,
-                child: Card(
-                  elevation: 10,
+              Expanded(
+                flex: 2,
+                child: CircleAvatar(
+                  backgroundColor: Colors.red,
+                  radius: 30,
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          pos--;
+                        });
+                      }),
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Container(
                   child: Column(
                     children: [
-                      Image.asset(
-                        ITEMS[index].imageUrl[pos],
-                        fit: BoxFit.cover,
+                      Expanded(
+                        flex: 5,
+                        child: Image.asset(
+                          ITEMS[index].imageUrl[pos],
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      Text(ITEMS[index].words[pos])
+                      Card(
+                        elevation: 12,
+                        color: Colors.transparent,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(
+                                    left: 20, bottom: 7, top: 5),
+                                child: Text(
+                                  ITEMS[index].words[pos],
+                                  style: TextStyle(
+                                      color: Colors.orange,
+                                      fontSize: 50,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  left: 20, right: 20, bottom: 7, top: 5),
+                              child: CircleAvatar(
+                                radius: 25,
+                                child: IconButton(
+                                    icon: Icon(Icons.play_arrow),
+                                    onPressed: () {}),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
               ),
-              Spacer(),
-              Column(
-                children: [
-                  IconButton(
-                      icon: Icon(Icons.arrow_forward),
+              Expanded(
+                flex: 2,
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.green,
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                        size: 30,
+                      ),
                       onPressed: () {
                         setState(() {
                           pos++;
                         });
                       }),
-                  IconButton(icon: Icon(Icons.play_arrow), onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      onPressed: () {
-                        pos--;
-                      }),
-                ],
-              )
+                ),
+              ),
             ],
           ),
         ],
