@@ -1,12 +1,20 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kids_learning_app/screens/alphabet_screen.dart';
 import 'package:kids_learning_app/screens/generic_detail_screen.dart';
 import '../models/to_learn.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key key = const Key('')}) : super(key: key);
   static const routeName = '/main_screen';
 
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +57,18 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 2,
-              childAspectRatio: 1,
-            ),
+            gridDelegate:
+                MediaQuery.of(context).orientation == Orientation.portrait
+                    ? SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 2,
+                        childAspectRatio: 1,
+                      )
+                    : SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 2,
+                        childAspectRatio: 1,
+                      ),
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
@@ -61,6 +76,9 @@ class MainScreen extends StatelessWidget {
                     Navigator.of(context)
                         .pushNamed(AlphabetScreen.routeName, arguments: index);
                   } else {
+                    // Navigator.of(context).pushNamed(
+                    //     GenericDetailScreen.routeName,
+                    //     arguments: index);
                     Navigator.of(context).pushNamed(
                         GenericDetailScreen.routeName,
                         arguments: index);
