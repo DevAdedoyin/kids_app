@@ -60,9 +60,11 @@ class MainScreen extends StatelessWidget {
                   if (index == 0) {
                     Navigator.of(context)
                         .pushNamed(AlphabetScreen.routeName, arguments: index);
+                  } else {
+                    Navigator.of(context).pushNamed(
+                        GenericDetailScreen.routeName,
+                        arguments: index);
                   }
-                  Navigator.of(context).pushNamed(GenericDetailScreen.routeName,
-                      arguments: index);
                 },
                 child: GridTile(
                   child: Card(
