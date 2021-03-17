@@ -46,9 +46,15 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                       size: 30,
                     ),
                     onPressed: () {
-                      setState(() {
-                        pos--;
-                      });
+                      if (pos == 0) {
+                        setState(() {
+                          pos = ITEMS[index].words.length - 1;
+                        });
+                      } else {
+                        setState(() {
+                          pos--;
+                        });
+                      }
                     }),
               ),
             ),
@@ -135,9 +141,15 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                       size: 30,
                     ),
                     onPressed: () {
-                      setState(() {
-                        pos++;
-                      });
+                      if (pos == ITEMS[index].words.length - 1) {
+                        setState(() {
+                          pos = 0;
+                        });
+                      } else {
+                        setState(() {
+                          pos++;
+                        });
+                      }
                     }),
               ),
             ),
