@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kids_learning_app/models/to_learn.dart';
 
 class AlphabetScreen extends StatefulWidget {
@@ -14,7 +15,20 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     pos = 0;
+  }
+
+  @override
+  dispose() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    super.dispose();
   }
 
   @override
@@ -76,8 +90,13 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
                     Expanded(
                       child: CircleAvatar(
                         radius: 25,
+                        backgroundColor: Colors.blue,
                         child: IconButton(
-                            icon: Icon(Icons.play_arrow), onPressed: () {}),
+                            icon: Icon(
+                              Icons.play_arrow,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {}),
                       ),
                     ),
                   ],
